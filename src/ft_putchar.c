@@ -6,12 +6,12 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:50:55 by tripham           #+#    #+#             */
-/*   Updated: 2024/11/19 21:37:00 by tripham          ###   ########.fr       */
+/*   Updated: 2024/11/22 21:53:34 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../ft_printf.h"
-#include <unistd.h>
+#include "../ft_printf.h"
+
 int	ft_putchar(char c)
 {
 	if (write(1, &c, 1) != 1)

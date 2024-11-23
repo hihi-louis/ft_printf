@@ -6,49 +6,29 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:51:00 by tripham           #+#    #+#             */
-/*   Updated: 2024/11/19 22:03:54 by tripham          ###   ########.fr       */
+/*   Updated: 2024/11/21 22:19:35 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../ft_printf.h"
-#include <stdio.h>
-#include <unistd.h>
-
-int	ft_putchar(char c)
-{
-	if (write(1, &c, 1) != 1)
-		return (-1);
-	else
-		return (1);
-}
+#include "../ft_printf.h"
 
 int	ft_putnbr(int n)
 {
 	int	len;
-	long	nbr;
 
 	len = 0;
-	nbr = (long)n;
-	if (nbr < 0)
+	if (n == -2147483648)
 	{
-		if (write(1, "-", 1) == -1)
-			return (-1);
-		len ++;
-		nbr = -nbr;
+		len += write(1, "-2147483648", 11);
+		return (len);
 	}
-	if (nbr >= 10)
+	if (n < 0)
 	{
-		len += ft_putnbr(nbr / 10);
-		len += ft_putnbr(nbr % 10);
+		len += write(1, "-", 1);
+		n = -n;
 	}
-	else
-		len += ft_putchar(nbr + '0');
+	if (n >= 10)
+		len += ft_putnbr(n / 10);
+	len += ft_putchar(n % 10 + '0');
 	return (len);
-}
-
-int main()
-{
-	int length = ft_putnbr(2147483647);
-	printf("\nLength: %d\n", length); 
-	return 0;
 }
