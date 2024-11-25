@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:54:56 by tripham           #+#    #+#             */
-/*   Updated: 2024/11/22 03:39:49 by tripham          ###   ########.fr       */
+/*   Updated: 2024/11/24 19:21:10 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,18 @@
 int	ft_putpointer(unsigned long long p)
 {
 	int	len;
+	int	temp;
 
 	len = 0;
 	if (p == 0)
-	{
-		write(1, "(nil)", 5);
-		return (5);
-	}
-	len += write(1, "0x", 2);
-	len += ft_puthex(p, 'x');
+		return (write(1, "(nil)", 5));
+	temp = write(1, "0x", 2);
+	if (temp == -1)
+		return (-1);
+	len += temp;
+	temp = ft_puthex(p, 'x');
+	if (temp == -1)
+		return (-1);
+	len += temp;
 	return (len);
 }

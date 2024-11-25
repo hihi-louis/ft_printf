@@ -6,13 +6,13 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:55:03 by tripham           #+#    #+#             */
-/*   Updated: 2024/11/22 22:03:16 by tripham          ###   ########.fr       */
+/*   Updated: 2024/11/24 19:33:42 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int putchr_hex(unsigned long long n, const char type)
+static int	putchr_hex(unsigned long long n, const char type)
 {
 	if (n < 10 && ft_putchar(n + '0') == -1)
 		return (-1);
@@ -22,6 +22,7 @@ static int putchr_hex(unsigned long long n, const char type)
 		return (-1);
 	return (0);
 }
+
 int	ft_puthex(unsigned long long n, const char type)
 {
 	int	len;
@@ -34,7 +35,7 @@ int	ft_puthex(unsigned long long n, const char type)
 		if (temp == -1)
 			return (-1);
 		len += temp;
-		temp= ft_puthex(n % 16, type);
+		temp = ft_puthex(n % 16, type);
 		if (temp == -1)
 			return (-1);
 		len += temp;
