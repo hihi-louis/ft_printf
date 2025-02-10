@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: trietpham <trietpham@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:55:03 by tripham           #+#    #+#             */
-/*   Updated: 2024/11/24 19:33:42 by tripham          ###   ########.fr       */
+/*   Updated: 2025/02/09 12:28:13 by trietpham        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 static int	putchr_hex(unsigned long long n, const char type)
 {

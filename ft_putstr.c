@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: trietpham <trietpham@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 19:50:55 by tripham           #+#    #+#             */
-/*   Updated: 2024/11/22 21:53:34 by tripham          ###   ########.fr       */
+/*   Created: 2024/11/19 19:55:01 by tripham           #+#    #+#             */
+/*   Updated: 2025/02/09 12:28:09 by trietpham        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_putchar(char c)
+
+int	ft_putstr(char *str)
 {
-	if (write(1, &c, 1) != 1)
-		return (-1);
-	else
-		return (1);
+	int	len;
+	int	temp;
+
+	len = 0;
+	if (!str)
+		return (write(1, "(null)", 6));
+	while (*str)
+	{
+		temp = write(1, str++, 1);
+		if (temp == -1)
+			return (-1);
+		len += temp;
+	}
+	return (len);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: trietpham <trietpham@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:54:50 by tripham           #+#    #+#             */
-/*   Updated: 2024/11/24 21:34:04 by tripham          ###   ########.fr       */
+/*   Updated: 2025/02/09 12:27:42 by trietpham        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 static int	check_format(const char format, va_list args)
 {
@@ -62,12 +62,4 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (len);
-}
-int main()
-{
-	char *str = "%%%sdlkngflasdfnlgfasd%";
-	ft_printf("%%%%\n");
-	#include <stdio.h>
-	printf("%%%%\n");
-	return 0;
 }

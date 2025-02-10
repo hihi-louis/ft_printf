@@ -3,7 +3,6 @@ NAME := libftprintf.a
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
 
-SRC_DIR	:= src
 SRCS := ft_printf.c	\
 		ft_putchar.c	\
 		ft_puthex.c	\
@@ -19,7 +18,7 @@ all: $(NAME)
 $(NAME):	$(OBJ)
 	ar	rcs	$(NAME)	$(OBJ)
 
-%.o:	$(SRC_DIR)/%.c
+%.o:	%.c
 	$(CC) $(CFLAGS)	-c	$<	-o	$@
 
 clean:

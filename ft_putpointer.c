@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: trietpham <trietpham@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 19:55:01 by tripham           #+#    #+#             */
-/*   Updated: 2024/11/24 18:45:06 by tripham          ###   ########.fr       */
+/*   Created: 2024/11/19 19:54:56 by tripham           #+#    #+#             */
+/*   Updated: 2025/02/09 12:28:09 by trietpham        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_putstr(char *str)
+
+int	ft_putpointer(unsigned long long p)
 {
 	int	len;
 	int	temp;
 
 	len = 0;
-	if (!str)
-		return (write(1, "(null)", 6));
-	while (*str)
-	{
-		temp = write(1, str++, 1);
-		if (temp == -1)
-			return (-1);
-		len += temp;
-	}
+	if (p == 0)
+		return (write(1, "(nil)", 5));
+	temp = write(1, "0x", 2);
+	if (temp == -1)
+		return (-1);
+	len += temp;
+	temp = ft_puthex(p, 'x');
+	if (temp == -1)
+		return (-1);
+	len += temp;
 	return (len);
 }
